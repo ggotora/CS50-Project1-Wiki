@@ -1,0 +1,25 @@
+{% extends "encyclopedia/layout.html" %}
+
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+{{ title }}
+    {% for entry in entries %}
+
+      {% if entry == duplicate_title %}
+
+    <div class="d-flex justify-content-center">
+        <div class="card" style="width: 50vw;">
+            <div class="card-body">
+                <h1 class="mb-4">Entry page for <a href="{% url 'entry' entry %}">{{ entry }}</a> already exists</h1>
+                <a  href="{% url 'entry' entry %}">View Page</a>
+             </div>
+         </div>
+    </div>     
+      {% endif %}
+   {% endfor %}
+   
+{% endblock %}
