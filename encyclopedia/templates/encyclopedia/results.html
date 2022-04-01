@@ -11,7 +11,7 @@
         {% empty %}
         <h3>No results match your search for '{{ query }}' </h3>
         <button class="btn btn-outline-success" type="button">
-            <a href="{% url 'index' %}">Click here for a list of entries</a>
+            <a href="{% url 'index' %}">Click here for valid entries</a>
         </button>
         {% endfor %}
     </ul>

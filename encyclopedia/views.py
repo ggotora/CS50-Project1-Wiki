@@ -1,6 +1,7 @@
 import re
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
+from encyclopedia.forms import NewEntryForm
 import markdown2 
 
 from . import util
@@ -40,3 +41,27 @@ def search(request):
         "results": results, 
         'query': query
     })
+
+
+def new_entry(request):
+    if request.method == "POST":
+        form = NewEntryForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data['title']
+            content = form.cleaned_data['content']
+            editable = form.cleaned_data['editable']
+            if editable or title not in util.list_entries():
+                util.save_entry(title, content)
+                return HttpResponseRedirect(f'/wiki/{title}')           
+            elif title in util.list_entries():
+                return render(request, "encyclopedia/duplicate_entry.html" , {
+                    'duplicate': util.get_entry(title), 
+                    'duplicate_title': title, 
+                    'entries': util.list_entries()
+                })
+                
+    else:
+        form = NewEntryForm()
+        return render(request, 'encyclopedia/new_entry.html', {
+            'form': form
+        })
