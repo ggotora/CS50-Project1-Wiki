@@ -1,5 +1,6 @@
 # cs50-Web-Project1
 CS50 Project - Design a Wikipedia-like online encyclopedia.
+![](wiki.png)
 
 
 ### Specifications
