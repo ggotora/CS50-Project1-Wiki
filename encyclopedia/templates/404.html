@@ -7,9 +7,14 @@
 {% endblock %}
 
 {% block body %}
-<h1>404 Page </h1>
 
-<p>This Entry does not exist</p>
-<a href="{% url 'index' %}">Go Home</a>
-
+<div class="d-flex justify-content-center">
+<div class="card" style="width: 50vw;">
+    <div class="card-body">
+      <h1 class="card-title">404 Error Page</h1>
+      <p class="card-text">Entry does not exist</p>
+      <a href="{% url 'index' %}" class="card-link">Click here for valid entries</a>
+    </div>
+  </div>
+</div>
 {% endblock %}
