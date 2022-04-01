@@ -12,9 +12,10 @@ def index(request):
 
 def entry(request, title):
     try:
-        entry = util.get_entry(title)
+        entry = markdown2.markdown(util.get_entry(title))
     except:
-        raise Http404('Page Not Found!!')
-    return render(request, "encyclopedia/entry.html", {
-        'entry': markdown2.markdown(entry)
+        raise Http404('Page not found')
+    return render(request, 'encyclopedia/entry.html', {
+        'entry': entry
     })
+
