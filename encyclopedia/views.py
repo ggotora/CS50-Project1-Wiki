@@ -22,3 +22,21 @@ def entry(request, title):
 
 def error404(request, exception='Page not found'):
     return render(request,'404.html')
+
+def search(request):
+    query = request.GET.get('q')
+    results = []
+   
+    if util.get_entry(query):
+        return render(request, "encyclopedia/entry.html", {
+            'entry': markdown2.markdown(util.get_entry(query))
+            })
+    else:
+        for title in util.list_entries():
+            print(title.lower().find(query.lower()) == -1)
+            if title.lower().find(query.lower()) != -1:
+                results.append(title)
+        return render(request, "encyclopedia/results.html", {
+        "results": results, 
+        'query': query
+    })
