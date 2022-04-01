@@ -1,0 +1,15 @@
+
+
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+<h1>404 Page </h1>
+
+<p>This Entry does not exist</p>
+<a href="{% url 'index' %}">Go Home</a>
+
+{% endblock %}

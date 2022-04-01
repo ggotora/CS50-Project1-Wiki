@@ -1,3 +1,4 @@
+import re
 from django.http import Http404
 from django.shortcuts import render
 import markdown2 
@@ -19,3 +20,5 @@ def entry(request, title):
         'entry': entry
     })
 
+def error404(request, exception='Page not found'):
+    return render(request,'404.html')
