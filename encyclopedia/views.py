@@ -3,6 +3,7 @@ from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
 from encyclopedia.forms import NewEntryForm
 import markdown2 
+import random
 
 from . import util
 
@@ -78,3 +79,8 @@ def edit_entry(request, title):
     return render(request, 'encyclopedia/new_entry.html', {
             'form': form
         })
+def random_page(request):
+    random_int = (random.randint(0, len(util.list_entries())) -1 )
+    print(len(util.list_entries()))
+    title = util.list_entries()[random_int]
+    return HttpResponseRedirect(f'/wiki/{title}')
