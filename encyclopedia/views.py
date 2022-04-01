@@ -32,11 +32,11 @@ def search(request):
    
     if util.get_entry(query):
         return render(request, "encyclopedia/entry.html", {
-            'entry': markdown2.markdown(util.get_entry(query))
+            'entry': markdown2.markdown(util.get_entry(query)), 
+            'title': query
             })
     else:
         for title in util.list_entries():
-            print(title.lower().find(query.lower()) == -1)
             if title.lower().find(query.lower()) != -1:
                 results.append(title)
         return render(request, "encyclopedia/results.html", {
