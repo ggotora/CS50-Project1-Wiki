@@ -18,7 +18,8 @@ def entry(request, title):
     except:
         raise Http404('Page not found')
     return render(request, 'encyclopedia/entry.html', {
-        'entry': entry
+        'entry': entry, 
+        'title': title
     })
 
 def error404(request, exception='Page not found'):
@@ -63,5 +64,17 @@ def new_entry(request):
     else:
         form = NewEntryForm()
         return render(request, 'encyclopedia/new_entry.html', {
+            'form': form
+        })
+
+def edit_entry(request, title):
+    data = {
+        'title': title,
+        'content': util.get_entry(title), 
+        'editable': True
+    }
+    form = NewEntryForm(data)
+    util.save_entry(data['title'], data['content'])
+    return render(request, 'encyclopedia/new_entry.html', {
             'form': form
         })

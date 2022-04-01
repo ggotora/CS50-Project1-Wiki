@@ -6,5 +6,5 @@
 
 {% block body %}
     {{ entry | safe }}
-
+    <button class="btn btn-outline-secondary"><a class="text-success" href="{% url 'edit_entry' title %}">Edit Page </a></button>
 {% endblock %}
