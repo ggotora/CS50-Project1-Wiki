@@ -61,9 +61,9 @@ Feel free to check the [issues page](issues/).
 
 Give a ⭐️ if you like this project!
 
-## 📝 License
+# 📝 License
 
-This project is [MIT](lic.url) licensed.
+This project is [MIT](LICENSE) licensed.
 
 
 
