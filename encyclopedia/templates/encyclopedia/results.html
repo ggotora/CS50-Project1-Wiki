@@ -5,14 +5,17 @@
 {% endblock %}
 
 {% block body %}
+    {% if results %}
+         <h3>Search Results for query "{{ query }}"</h3>
+    {% endif %}
     <ul>
         {% for result in results %}
         <li> <a href="{% url 'entry' result %}">{{ result }}</a></li>
         {% empty %}
         <h3>No results match your search for '{{ query }}' </h3>
-        <button class="btn btn-outline-success" type="button">
+        
             <a href="{% url 'index' %}">Click here for valid entries</a>
-        </button>
+        
         {% endfor %}
     </ul>
 
