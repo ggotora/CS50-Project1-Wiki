@@ -43,12 +43,7 @@ Your website must meet the following requirements.
 - CSS3
 ## YouTube Demo
 
-[Video_Link](https://youtu.be/CEvuM3jKlh8)
-
-## Webpage
-
-[Website](https://ggotora.github.io/CS50-Web-Project0/)
-
+[Video_Link](https://www.youtube.com/watch?v=SBdDirY7_Fk)
 
 ## Authors
 
